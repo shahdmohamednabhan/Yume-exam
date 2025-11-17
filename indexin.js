@@ -1,73 +1,74 @@
-function openNav() {
+  function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-  
-const areasDiv = document.getElementById('areas');
-  const resultsDiv = document.getElementById('results');
+const ingredientsDiv = document.getElementById("ingredients");
+  const mealsDiv = document.getElementById("meals");
 
-  const icons = ['fa-solid fa-house','fa-solid fa-house','fa-solid fa-house','fa-solid fa-house'];
-
-  async function fetchAreas() {
-    try {
-      const data = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list').then(r => r.json());
-      displayAreas(data.meals);
-    } catch(err) {
-      areasDiv.innerHTML = `<p class="text-danger">Failed to load areas</p>`;
-    }
+  // جلب كل الـ Ingredients
+  async function getIngredients() {
+    const res = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
+    const data = await res.json();
+    showIngredients(data.meals.slice(0, 40)); // نعرض أول 40 فقط
   }
 
-  function displayAreas(areas) {
-    areasDiv.innerHTML = '';
-    areas.forEach((area, index) => {
-      const div = document.createElement('div');
-      div.className = 'area-item';
-      const iconClass = icons[index % icons.length]; // تكرار أيقونات بالتتابع
-      div.innerHTML = `
-        <i class="${iconClass}"></i>
-        <div class="area-name">${area.strArea}</div>
+  // عرض قائمة الـ Ingredients
+  function showIngredients(list) {
+    ingredientsDiv.innerHTML = "";
+
+    list.forEach(ing => {
+      const description = ing.strDescription 
+        ? ing.strDescription.slice(0, 100) + "..."
+        : "No description available.";
+
+      const box = document.createElement("div");
+      box.className = "ingredient-item";
+
+      box.innerHTML = `
+        <i class="fa-solid fa-drumstick-bite"></i>
+        <div class="ingredient-name">${ing.strIngredient}</div>
+        <div class="ingredient-desc">${description}</div>
       `;
-      div.addEventListener('click', () => selectArea(div, area.strArea));
-      areasDiv.appendChild(div);
+
+      box.addEventListener("click", () => selectIngredient(box, ing.strIngredient));
+      ingredientsDiv.appendChild(box);
     });
   }
 
-  async function selectArea(selectedDiv, area) {
-    // إخفاء باقي الـ Areas
-    const allDivs = document.querySelectorAll('.area-item');
-    allDivs.forEach(div => { if (div !== selectedDiv) div.style.display = 'none'; });
+  // عند الضغط على Ingredient
+  async function selectIngredient(selectedBox, ingredient) {
+    // إخفاء باقي العناصر
+    const all = document.querySelectorAll(".ingredient-item");
+    all.forEach(item => { if (item !== selectedBox) item.style.display = "none"; });
 
-    // جلب الوصفات حسب الـ Area
-    try {
-      const data = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${encodeURIComponent(area)}`).then(r => r.json());
-      displayMeals(data.meals);
-    } catch(err) {
-      resultsDiv.innerHTML = `<p class="text-danger">Failed to load meals</p>`;
-    }
+    // جلب الوجبات الخاصة بهذا الـ Ingredient
+    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    const data = await res.json();
+
+    showMeals(data.meals);
   }
 
-  function displayMeals(meals) {
-    resultsDiv.innerHTML = '';
-    if (!meals) {
-      resultsDiv.innerHTML = `<h3 class="text-white text-center">No results found</h3>`;
-      return;
-    }
+  // عرض الوجبات الناتجة
+  function showMeals(meals) {
+    mealsDiv.innerHTML = "";
 
     meals.forEach(meal => {
-      const div = document.createElement('div');
-      div.className = 'meal-card';
-      div.innerHTML = `
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+      const card = document.createElement("div");
+      card.className = "meal-card";
+
+      card.innerHTML = `
+        <img src="${meal.strMealThumb}">
         <div class="meal-overlay">${meal.strMeal}</div>
       `;
-      resultsDiv.appendChild(div);
+
+      mealsDiv.appendChild(card);
     });
   }
 
-  fetchAreas();
+  getIngredients();
+
  if (performance.getEntriesByType("navigation")[0].type === "reload") {
-        window.location.href = "indexex.html"; 
-    }
+        window.location.href = "indexex.html";  }
