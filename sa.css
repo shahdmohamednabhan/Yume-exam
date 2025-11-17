@@ -1,0 +1,151 @@
+.input-group{ width: 500px;
+  
+margin-left: auto;
+margin-right: auto;
+ }
+ .meal-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.meal-box img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+/* الـ Overlay اللي فيه اسم الأكلة */
+.meal-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+/* التأثير عند الـ Hover */
+.meal-box:hover .meal-overlay {
+    bottom: 0;
+}
+
+.meal-box:hover img {
+    transform: scale(1.1);
+}
+
+.menu-icon {
+  font-size: 90px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed; 
+    margin-top: 200px;
+     
+ }
+  
+/* القائمة الجانبية */
+ .sidenav {
+  height: 1000%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+/* زرار X */
+.sidenav .closebtn {
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+ .dd{height: 90px;}
+.dd img{ height: 90%;
+width: 90%;
+padding-top: 20px;}
+
+ .menu-icon {
+  font-size: 50px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed;    
+ }
+  
+
+
+
+
+
+/* القائمة الجانبية */
+ .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+/* زرار X */
+.sidenav .closebtn {
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+/* .dd{height: 90px;} */
+.dd img{ height: 90%;
+width: 90%;
+padding-top: 20px;
+  }
+.hder{ height: 100vh;}
+::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important; /* عشان يكون واضح */
+}
+
