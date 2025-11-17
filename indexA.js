@@ -69,5 +69,5 @@ const areasDiv = document.getElementById('areas');
 
   fetchAreas();
  if (performance.getEntriesByType("navigation")[0].type === "reload") {
-        window.location.href = "indexex.html"; 
+        window.location.href = "index.html"; 
     }
