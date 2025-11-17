@@ -1,0 +1,191 @@
+ body { background-color: #000; color: #fff; }
+
+    .areas-container { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      justify-content: center; 
+      margin-top: 40px; 
+    }
+
+    .area-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.2s;
+
+      flex: 0 0 25%;   /* كل عنصر ياخد ربع الصف */
+      max-width: 25%;  /* لضبط الحجم */
+      box-sizing: border-box;
+    }
+
+    .area-item i {
+      font-size: 50px;
+      color: #fff;
+      transition: transform 0.2s;
+    } .area-name {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Meals */
+    .results {
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      justify-content: center; 
+      margin-top: 20px;
+    }
+
+    .meal-card {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .meal-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .meal-card:hover img { transform: scale(1.05); }
+
+    .meal-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .meal-card:hover .meal-overlay { opacity: 1; }
+
+    @media(max-width: 768px){
+      .area-item { flex: 0 0 50%; max-width: 50%; }
+    }
+
+    @media(max-width: 480px){
+      .area-item { flex: 0 0 100%; max-width: 100%; }
+    } 
+    .menu-icon {
+  font-size: 90px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed; 
+    margin-top: 200px;
+    color: black;
+     
+ }
+  
+/* القائمة الجانبية */
+ .sidenav {
+  height: 1000%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+/* زرار X */
+.sidenav .closebtn {
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+ .dd{height: 90px;}
+.dd img{ height: 90%;
+width: 90%;
+padding-top: 20px;
+}
+
+ .menu-icon {
+  font-size: 50px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed;    
+ } 
+/* القائمة الجانبية */
+ .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+.dd img{ height: 90%;
+width: 90%;
+  }
+ 
+   .hder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important; /* عشان يكون واضح */
+}
+  
