@@ -1,0 +1,215 @@
+body { background-color: #000; color: #fff; }
+    .category-card, .meal-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 8px; transition: transform 0.2s; }
+    .category-card img, .meal-card img { width: 200px; height: 200px; object-fit: cover; transition: transform 0.3s; border-radius: 8px; }
+    .category-card:hover img, .meal-card:hover img { transform: scale(1.05); }
+
+    /* Overlay التصنيفات */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.4);
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 10px;
+    }
+    .category-card:hover .overlay { opacity: 1; }
+    .overlay h5 { margin: 0 0 5px 0; font-size: 1.2rem; font-weight: bold; }
+    .overlay p { font-size: 0.8rem; margin: 0; }
+
+    /* Overlay الوجبات عند hover */
+    .meal-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.4);
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 8px;
+    }
+         .meal-card:hover .meal-overlay { opacity: 1; }
+
+         .meal {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.meal img {
+  transition: transform 0.4s ease;
+}
+
+.meal:hover img {
+  transform: scale(1.1);
+}
+
+.meal-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;                  
+  display: flex;
+  align-items: center;
+  justify-content: center;        
+  background:  rgba(255, 255, 255, 0.8);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 10;
+}
+
+.meal:hover .meal-layer {
+  transform: translateY(0);}
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .menu-icon {
+  font-size: 90px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed; 
+    margin-top: 200px;
+    color: black;
+     
+ }
+  
+/* القائمة الجانبية */
+ .sidenav {
+  height: 1000%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+/* زرار X */
+.sidenav .closebtn {
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+ .dd{height: 90px;}
+.dd img{ height: 90%;
+width: 90%;
+padding-top: 20px;}
+
+ .menu-icon {
+  font-size: 50px;
+  padding: 10px;
+  cursor: pointer;
+    position: fixed;    
+ }
+  
+
+
+
+
+
+/* القائمة الجانبية */
+ .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 10;
+   
+}
+/* الروابط */
+ .sidenav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  background-color: #333;
+}
+
+/* زرار X */
+.sidenav .closebtn {
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+/* .dd{height: 90px;} */
+.dd img{ height: 90%;
+width: 90%;
+padding-top: 20px;
+  }
+/* .hder{ height: 700px; } */
+.hder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important; /* عشان يكون واضح */
+}
+  
